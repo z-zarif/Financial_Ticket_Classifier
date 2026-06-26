@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from typing import Optional, List, Dict, Any
 from classifier import classify_ticket
 
 app = FastAPI(title="Ticket Sorter API")
@@ -7,9 +8,10 @@ app = FastAPI(title="Ticket Sorter API")
 
 class TicketRequest(BaseModel):
     ticket_id: str
-    channel: str | None = None
-    locale: str | None = None
-    message: str
+    complaint: str
+    language: Optional[str] = "en"
+    user_type: Optional[str] = "customer"
+    transaction_history: Optional[List[Dict[str, Any]]] = []
 
 
 @app.get("/health")
@@ -21,10 +23,5 @@ def health():
 
 @app.post("/sort-ticket")
 def sort_ticket(ticket: TicketRequest):
-
-    result = classify_ticket(ticket.message)
-
-    return {
-        "ticket_id": ticket.ticket_id,
-        **result
-    }
+    result = classify_ticket(ticket.dict())
+    return result
