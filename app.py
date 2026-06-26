@@ -26,7 +26,7 @@ class TicketRequest(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "healthy"}
+    return {"status": "ok"}
 
 @app.post("/sort-ticket")
 def sort_ticket(ticket: TicketRequest):
