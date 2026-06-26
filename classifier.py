@@ -319,3 +319,5 @@ def _next_action(case_type: str, evidence_verdict: str) -> str:
         "other": "Reply to customer asking for specific details: transaction ID, amount, and description of the issue.",
     }
     return actions.get(case_type, actions["other"])
+
+
