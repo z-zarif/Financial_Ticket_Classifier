@@ -78,11 +78,36 @@ For every request:
    - inconsistent
    - insufficient_evidence
 3. Classify the case type.
+FYI - THESE ARE THE POSSIBLE CASE TYPES: 
+wrong_transfer
+payment_failed 
+refund_request 
+duplicate_payment 
+merchant_settlement_delay 
+agent_cash_in_issue
 4. Assign a severity:
    - low
    - medium
    - high
 5. Determine which department should handle the case.
+FYI: THESE ARE OUR DEPARTMENTS STRICTLY
+customer_support
+dispute_resolution
+payments_ops
+merchant_operations
+agent_operations
+agent_operations
+fraud_risk
+
+The relationship between departments and typical case types are as following:
+
+customer_support for other, low severity refund_request, vague or insufficient data cases.
+dispute_resolution for wrong_transfer, contested refund_request.
+payments_ops for payment_failed, duplicate_payment.
+merchant_operations for merchant_settlement_delay, merchant side complaints.
+agent_operations for agent_cash_in_issue, agent side complaints.
+fraud_risk for phishing_or_social_engineering, suspicious activity patterns.
+
 6. Generate a concise internal summary for the support agent.
 7. Recommend the next action for the support team.
 8. Draft a professional response to the customer.
