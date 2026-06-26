@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.pytest_cache/
+.coverage
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+
+# Docker
+*.log
+
+# Samples with generated output (keep inputs, ignore outputs)
+samples/output/
